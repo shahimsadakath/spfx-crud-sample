@@ -1,0 +1,58 @@
+
+<button class="spButton" (click)="openModal('custom-modal-1')">Add Store Location</button>
+<div #map id="map"></div>
+
+<modal id="custom-modal-1">
+    <div class="modal">
+        <div class="modal-body">
+            <h3>Store Location</h3>
+            <div class="alert alert-danger" [hidden]="!isFormValid">
+                   
+                    <strong>Invalid!</strong> Please Fill all Fields to continue.
+                </div>
+            <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+                    <div class="container">
+  
+                            <div class="row">
+                              
+                              <div class="col-100">
+                                    <label class="ms-Label " required="">Title</label>
+                                <input type="text" name="title" formControlName = "title"   />
+                                
+                              </div>
+                              <div class="col-100">
+                                    <label class="ms-Label " required="">Description</label>
+                                <input type="text" name="description" formControlName="description"   />
+                                
+                              </div>
+                              <div class="col-100">
+                                    <label class="ms-Label " required="">Latitude</label>
+                                <input type="text"  name="latitude" formControlName="latitude"   />
+                                
+                              </div>
+                              <div class="col-100">
+                                    <label class="ms-Label " required="">Longitude</label>
+                                <input type="text" name="longitude" formControlName="longitude"    />
+                                
+                              </div>
+                            </div>
+                         
+                           
+                            <div class="row-button">
+                              
+                                <input type="submit"  class="spButton" value="Save" />
+                                <input type="button" class="spButtonOffline" (click)="closeModal('custom-modal-1');" value="Close" />
+                            </div>
+                        
+                            
+                        
+                        </div>
+            </form>
+           
+
+           
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>
+
